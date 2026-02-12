@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Selection de Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.0.app
+      - name: Configuration de Xcode
+        run: xcode-select -p
 
       - name: Build de l'application
         run: |
