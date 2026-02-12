@@ -22,6 +22,7 @@ jobs:
                      -scheme MyWebViewApp \
                      -sdk iphonesimulator \
                      -configuration Debug \
+                     IPHONEOS_DEPLOYMENT_TARGET=12.0 \
                      clean build \
                      CONFIGURATION_BUILD_DIR=$PWD/build
 
