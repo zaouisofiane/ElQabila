@@ -25,7 +25,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         self.webView = webView
         
         let port = (UIApplication.shared.delegate as! AppDelegate).serverPort
-        let urlString = "http://localhost:\(port)/index.html"
+        let urlString = "https://elqabila.com"
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         webView.load(request)
