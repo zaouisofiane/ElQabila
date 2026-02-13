@@ -189,6 +189,7 @@
 			);
 			dependencies = (
 				D70D03551B8B79340041D63F /* PBXTargetDependency */,
+			packageProductDependencies = (E123456789ABCDEF01234567 /* OneSignalFramework */,
 			);
 			name = MyWebViewAppTests;
 			productName = MyWebViewAppTests;
@@ -243,12 +244,33 @@
 			mainGroup = D748734A1B849E110095E42F;
 			productRefGroup = D74873541B849E110095E42F /* Products */;
 			projectDirPath = "";
+			packageReferences = (
+				D123456789ABCDEF01234567 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+			);
 			projectRoot = "";
 			targets = (
 				D74873521B849E110095E42F /* MyWebViewApp */,
 				D70D034E1B8B79340041D63F /* MyWebViewAppTests */,
 			);
 		};
+/* Begin PBXRemoteSwiftPackageReference section */
+		D123456789ABCDEF01234567 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = PBXRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+	/* End PBXRemoteSwiftPackageReference section */
+
+	/* Begin PBXSwiftPackageProductDependency section */
+		E123456789ABCDEF01234567 /* OneSignalFramework */ = {
+			isa = PBXSwiftPackageProductDependency;
+			package = D123456789ABCDEF01234567 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+	/* End PBXSwiftPackageProductDependency section */
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
