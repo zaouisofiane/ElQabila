@@ -29,10 +29,10 @@ jobs:
       - name: Compression de l'application
         run: |
           cd build
-          zip -r MyWebViewApp.zip MyWebViewApp.app
+          zip -r ../app_clean.zip MyWebViewApp.app
 
       - name: Telechargement du resultat
         uses: actions/upload-artifact@v4
         with:
-          name: App-Simulateur-iOS
-          path: build/MyWebViewApp.zip
+          name: App-Prete-Pour-Appetize
+          path: app_clean.zip
