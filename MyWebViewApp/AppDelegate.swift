@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // --- INITIALISATION ONESIGNAL ---
         // Remplace l'ID ci-dessous par ton App ID OneSignal
-        OneSignal.initialize("TON_ID_APP_ONESIGNAL", withLaunchOptions: launchOptions)
+        OneSignal.initialize("14140eee-4315-4bb9-8bad-78f75cd7f0a1", withLaunchOptions: launchOptions)
         
         // Demande de permission pour les notifications
         OneSignal.Notifications.requestPermission({ accepted in
