@@ -1,5 +1,4 @@
 import UIKit
-import OneSignalFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,19 +9,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Démarrage du serveur local (nécessaire pour ce projet spécifique)
+        // Démarrage du serveur local
         server = WebServer()
         server.run()
         serverPort = server.listeningPort
-        
-        // --- INITIALISATION ONESIGNAL ---
-        // Remplace l'ID ci-dessous par ton App ID OneSignal
-        OneSignal.initialize("14140eee-4315-4bb9-8bad-78f75cd7f0a1", withLaunchOptions: launchOptions)
-        
-        // Demande de permission pour les notifications
-        OneSignal.Notifications.requestPermission({ accepted in
-            print("L'utilisateur a accepté les notifications: \(accepted)")
-        }, fallbackToSettings: true)
         
         return true
     }
