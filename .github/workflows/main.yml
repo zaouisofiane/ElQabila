@@ -3,7 +3,7 @@ name: Build WebView App
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: # Permet de lancer le build manuellement
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -16,23 +16,29 @@ jobs:
       - name: Configuration de Xcode
         run: xcode-select -p
 
-      - name: Build de l'application
+      - name: Build de l'application pour iPhone (Arm64)
         run: |
+          # On build pour le SDK iphoneos (vrais appareils) et non simulateur
           xcodebuild -project MyWebViewApp.xcodeproj \
                      -scheme MyWebViewApp \
-                     -sdk iphonesimulator \
-                     -configuration Debug \
+                     -sdk iphoneos \
+                     -configuration Release \
                      IPHONEOS_DEPLOYMENT_TARGET=12.0 \
+                     CODE_SIGNING_ALLOWED=NO \
+                     CODE_SIGNING_REQUIRED=NO \
                      clean build \
                      CONFIGURATION_BUILD_DIR=$PWD/build
 
-      - name: Compression de l'application
+      - name: Creation du fichier IPA
         run: |
           cd build
-          zip -r ../app_clean.zip MyWebViewApp.app
+          # Un IPA est juste un zip contenant un dossier nommé Payload
+          mkdir Payload
+          cp -r MyWebViewApp.app Payload/
+          zip -r ../ElQabila.ipa Payload
 
-      - name: Telechargement du resultat
+      - name: Telechargement de l'IPA final
         uses: actions/upload-artifact@v4
         with:
-          name: App-Prete-Pour-Appetize
-          path: app_clean.zip
+          name: ElQabila-iPhone-Installation
+          path: ElQabila.ipa
